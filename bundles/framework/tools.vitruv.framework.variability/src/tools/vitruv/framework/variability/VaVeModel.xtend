@@ -5,6 +5,9 @@ import java.util.List
 
 interface VaVeModel {
 
+	def public addInitialVersion(List<PropagatedChange> propagatedChange) {
+	}
+	
 	def public addVersion(List<PropagatedChange> propagatedChange) {
 	}
 	
