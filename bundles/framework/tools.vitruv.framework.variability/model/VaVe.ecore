@@ -2,22 +2,30 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="System" nsURI="edu.kit.sdq.metamodels.vave" nsPrefix="System">
   <eClassifiers xsi:type="ecore:EClass" name="System">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="variant" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rootVariant" lowerBound="1"
         eType="#//Variant" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Variant">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="version" upperBound="-1"
-        eType="#//Version" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="variationpoint" upperBound="-1"
-        eType="#//VariationPoint" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initialVersion" lowerBound="1"
+        eType="#//Version"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isRootVariant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variationpoint" eType="#//VariationPoint"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VariationPoint">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="variant" upperBound="-1"
-        eType="#//Variant" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variants" lowerBound="1"
+        upperBound="-1" eType="#//Variant" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//GroupType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Version">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GroupType">
+    <eLiterals name="XOR"/>
+    <eLiterals name="OR" value="1"/>
+    <eLiterals name="XORNONE" value="2" literal="XORNONE"/>
+    <eLiterals name="ORNONE" value="3"/>
   </eClassifiers>
 </ecore:EPackage>

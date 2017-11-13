@@ -8,17 +8,25 @@
   <foreignModel>VaVe.ecore</foreignModel>
   <genPackages prefix="System" basePackage="tools.vitruv.framework.variability" disposableProviderFactory="true"
       ecorePackage="VaVe.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="VaVe.ecore#//GroupType">
+      <genEnumLiterals ecoreEnumLiteral="VaVe.ecore#//GroupType/XOR"/>
+      <genEnumLiterals ecoreEnumLiteral="VaVe.ecore#//GroupType/OR"/>
+      <genEnumLiterals ecoreEnumLiteral="VaVe.ecore#//GroupType/XORNONE"/>
+      <genEnumLiterals ecoreEnumLiteral="VaVe.ecore#//GroupType/ORNONE"/>
+    </genEnums>
     <genClasses ecoreClass="VaVe.ecore#//System">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VaVe.ecore#//System/variant"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VaVe.ecore#//System/rootVariant"/>
     </genClasses>
     <genClasses ecoreClass="VaVe.ecore#//Variant">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VaVe.ecore#//Variant/version"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VaVe.ecore#//Variant/variationpoint"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VaVe.ecore#//Variant/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference VaVe.ecore#//Variant/initialVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VaVe.ecore#//Variant/isRootVariant"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VaVe.ecore#//Variant/variationpoint"/>
     </genClasses>
     <genClasses ecoreClass="VaVe.ecore#//VariationPoint">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VaVe.ecore#//VariationPoint/variant"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VaVe.ecore#//VariationPoint/variants"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VaVe.ecore#//VariationPoint/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VaVe.ecore#//VariationPoint/type"/>
     </genClasses>
     <genClasses ecoreClass="VaVe.ecore#//Version">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VaVe.ecore#//Version/number"/>
